@@ -12,3 +12,12 @@ function getComputerChoice() {
 }
 // check variable
 console.log(getComputerChoice());
+// create function
+// prompt user for input
+function getHumanChoice() {
+    let humanInput = prompt("Please, enter your choice: rock, paper, or scissors?");
+    return humanInput;
+}
+// print the user input
+let test = getHumanChoice();
+console.log(test);
