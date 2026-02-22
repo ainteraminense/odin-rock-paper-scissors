@@ -21,3 +21,8 @@ function getHumanChoice() {
 // print the user input
 let test = getHumanChoice();
 console.log(test);
+
+// create variables to save the scores
+// initialize them with 0
+let humanScore = 0;
+let computerScore = 0;
