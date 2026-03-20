@@ -1,6 +1,6 @@
 // variables
 const buttons = document.querySelectorAll("button");
-buttons.forEach(addEventListener("click", () => alert('It\'s listening')));
+buttons.forEach(addEventListener("click", playRound));
 
 // create getComputerChoice function
 function getComputerChoice() {
@@ -30,8 +30,12 @@ let computerScore = 0;
 
 // create function playRound
 // use the parameters humanChoice and computerChoice
-function playRound(humanChoice, computerChoice) {
+function playRound(event) {
+    const result = document.querySelector("#result")
+    // get computer choice
+    const computerChoice = getComputerChoice(); 
     // make human choice case insensitive
+    let humanChoice = event.target.textContent;
     humanChoice = humanChoice.toLowerCase();
     humanChoice = humanChoice.replace(humanChoice.charAt(0), humanChoice.charAt(0).toUpperCase());
     // write the logic of the game
@@ -46,7 +50,7 @@ function playRound(humanChoice, computerChoice) {
                 humanScore++;
                 break;
             } else {
-                console.log("It's a tie!");
+                result.textContent = "It's a tie!";
                 break;
             }
         case "Paper":
@@ -59,7 +63,7 @@ function playRound(humanChoice, computerChoice) {
                 humanScore++;
                 break;
             } else {
-                console.log("It's a tie!");
+                result.textContent = "It's a tie!";
                 break;
             }
         case "Scissors":
@@ -72,19 +76,19 @@ function playRound(humanChoice, computerChoice) {
                 humanScore++;
                 break;
             } else {
-                console.log("It's a tie!");
+                result.textContent = "It's a tie!";
                 break;
             }
         default:
-            console.log("Something went wrong");
+            result.textContent = "Something went wrong";
     }
     // announce round winner 
     function announceWin(humanChoice, computerChoice) {
-        console.log(`You won! ${humanChoice} beats ${computerChoice}`);
+        result.textContent = `You won! ${humanChoice} beats ${computerChoice}`;
     }
 
     function announceLoss(humanChoice, computerChoice) {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        result.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
     }
 }
 
