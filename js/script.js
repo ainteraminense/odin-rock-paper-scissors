@@ -2,7 +2,7 @@
 // initialize them with 0
 let humanScore = 0;
 let computerScore = 0;
-
+let rounds = 0;
 // variables
 const buttons = document.querySelectorAll("button");
 //buttons.forEach((button) => console.log(button.textContent));
@@ -45,11 +45,9 @@ function playRound(event) {
         case "Rock":
             if (computerChoice == "Paper") {
                 announceLoss(humanChoice, computerChoice);
-                computerScore++;
                 break;
             } else if (computerChoice == "Scissors") {
                 announceWin(humanChoice, computerChoice);
-                humanScore++;
                 break;
             } else {
                 result.textContent = "It's a tie!";
@@ -58,11 +56,9 @@ function playRound(event) {
         case "Paper":
             if (computerChoice == "Scissors") {
                 announceLoss(humanChoice, computerChoice);
-                computerScore++;
                 break;
             } else if (computerChoice == "Rock") {
                 announceWin(humanChoice, computerChoice);
-                humanScore++;
                 break;
             } else {
                 result.textContent = "It's a tie!";
@@ -71,11 +67,9 @@ function playRound(event) {
         case "Scissors":
             if (computerChoice == "Rock") {
                 announceLoss(humanChoice, computerChoice);
-                computerScore++;
                 break;
             } else if (computerChoice == "Paper") {
                 announceWin(humanChoice, computerChoice);
-                humanScore++;
                 break;
             } else {
                 result.textContent = "It's a tie!";
@@ -87,10 +81,18 @@ function playRound(event) {
     // announce round winner 
     function announceWin(humanChoice, computerChoice) {
         result.textContent = `You won! ${humanChoice} beats ${computerChoice}`;
+        humanScore++;
     }
 
     function announceLoss(humanChoice, computerChoice) {
         result.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
+        computerScore++;
+    }
+    rounds++;
+    if (humanScore === 5 || computerScore === 5) {
+        playGame();
+    } else {
+    result.textContent += `\nround ${rounds}: Human ${humanScore} vs Computer ${computerScore}`;
     }
 }
 
@@ -98,8 +100,13 @@ function playRound(event) {
 // move playRound and score variables here
 // call playRound 5 times
 function playGame() {
-
+        if (humanScore > computerScore) {
+            result.textContent = `Congratulations! You won!\n Human ${humanScore} vs Computer ${computerScore}`;
+        } else if (computerScore > humanScore) {
+            result.textContent = `I\'m sorry! You lost!\n Human ${humanScore} vs Computer ${computerScore}`;
+        } else {
+            result.textContent = `Oh oh i\'s a tie! \n Human ${humanScore} vs Computer ${computerScore}`;
+        }
+        rounds = 0;
 }
-
-playGame();
 
