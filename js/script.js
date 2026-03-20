@@ -1,3 +1,7 @@
+// variables
+const buttons = document.querySelectorAll("button");
+buttons.forEach(addEventListener("click", () => alert('It\'s listening')));
+
 // create getComputerChoice function
 function getComputerChoice() {
     let randomNumber = Math.random();
@@ -88,28 +92,7 @@ function playRound(humanChoice, computerChoice) {
 // move playRound and score variables here
 // call playRound 5 times
 function playGame() {
-    for (i = 1; i <= 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-         // check variable
-        console.log(`humanSelection = ${humanSelection}`);
-        console.log(`computerSelection = ${computerSelection}`);
-    }
-    if (humanScore > computerScore) {
-        console.log(`You're the winner: Human Score ${humanScore} vs Computer Score ${computerScore}`);
-    }
-    else if (humanScore < computerScore) {
-                console.log(`The computer is the winner: Human Score ${humanScore} vs Computer Score ${computerScore}`);
-
-    }
-    else if (humanScore === computerScore) {
-                        console.log(`It's a tie: Human Score ${humanScore} vs Computer Score ${computerScore}`);
-
-    }
-    else {
-        console.log("Something went wrong");
-    }
+    
 }
 
 playGame();
