@@ -1,6 +1,12 @@
+// create variables to save the scores
+// initialize them with 0
+let humanScore = 0;
+let computerScore = 0;
+
 // variables
 const buttons = document.querySelectorAll("button");
-buttons.forEach(addEventListener("click", playRound));
+//buttons.forEach((button) => console.log(button.textContent));
+buttons.forEach((button) => button.addEventListener("click", playRound));
 
 // create getComputerChoice function
 function getComputerChoice() {
@@ -23,10 +29,6 @@ function getHumanChoice() {
     return humanInput;
 }
 
-// create variables to save the scores
-// initialize them with 0
-let humanScore = 0;
-let computerScore = 0;
 
 // create function playRound
 // use the parameters humanChoice and computerChoice
@@ -96,7 +98,7 @@ function playRound(event) {
 // move playRound and score variables here
 // call playRound 5 times
 function playGame() {
-    
+
 }
 
 playGame();
